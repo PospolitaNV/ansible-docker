@@ -1,0 +1,11 @@
+---
+- hosts: all
+  connection: local
+  tasks:
+  - name: Start a docker container
+    docker_container:
+      name: mydata
+      image: java
+      state: started
+      volumes:
+        - /data

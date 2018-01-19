@@ -1,0 +1,13 @@
+---
+- hosts: all
+  connection: local
+  tasks:
+  - name: login into DockerHub
+    docker_login:
+      username: {{ docker_login }}
+      password: {{ docker_password }}
+      email: {{ docker_email }}
+  - name: pull image from DockerHub
+    docker_image:
+      name: myapacheweb
+      repository: npospolita/myapacheweb
